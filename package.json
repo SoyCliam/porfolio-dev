@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "powershell -Command \"New-Item -Path dist/.nojekyll -ItemType File -Force\"",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
